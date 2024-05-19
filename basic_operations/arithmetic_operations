@@ -1,0 +1,146 @@
+# Addition with +
+print(38 + 4)
+print(38.4 + 41.5) 
+
+# mixing integers and floats
+print(38 + 41.5) # 79.5
+
+# Subtraction with -
+print(38 - 4)
+print(38.4 - 41.9)
+
+print(38 - 41.5)
+
+# Multiplication with *
+print(38 * 4) # 152
+print(38.4 * 41.1) # 1578.24
+
+print(38 * 41.5) # 1577.0
+
+
+# Division with /
+print(16 / 4) # 4.0
+print(16 / 2.5) # 6.4
+
+# Integer division with //
+print(16 // 3) # 5
+print(16 // -3) # -6
+print(16 // 2.3) # 6.0
+print(-16 // 2.3) # -7.0
+
+# Exponentiation (powers) n**n
+print(16**3) # 4096
+
+# Modulo 
+print(15 % 3) # 0
+print(16 % 3) # 1
+print(17 % 3) # 2
+print(18 % 3) # 0
+
+# Floating Point Imprecision
+print(0.1 + 0.2 == 0.3) # False
+
+import math
+print(math.isclose(0.1 + 0.2, 0.3)) # True
+print(math.isclose(0.1 + 0.2, 0.4)) # False
+print(math.isclose(0.0001 + 0.0002, 0.0004)) # False
+
+from decimal import Decimal
+print(Decimal('0.1') + Decimal('0.2') == Decimal('0.3')) # True
+
+# Equality Comparison
+print(2 == 2)           # True
+print(42 == 43)         # False
+print('foo' == 'foo')   # True (Works with strings)
+print('foo' == 'Foo')   # False (Case matters)
+
+print(2 != 2)           # True
+print(42 != 43)         # False
+print('foo' != 'foo')   # True (Works with strings)
+print('foo' != 'Foo')   # False (Case matters)
+
+print(1 == 1.0)         # True
+print('1' == 1)         # False
+print('1.0' == Decimal('1.0'))         # False
+
+# Ordered Comparisons
+# in string comparison strings are compared lexicographically
+# which means they are compared char by char from left to right.
+# For example, a is less than b. Python stops as soon as it makes a decision. 
+print('-- Ordered Comparisons --')
+print('abc' < 'abb')                # False
+print('abc' < 'abc')                # False
+print('abc' == 'abc')               # True
+print('abc' < 'abd')                # True
+print('abc' < 'ABC')                # False
+print('ABC' < 'abc')                # True (CAPITALS are less than their LOWERCASE counterparts)
+print('ABC' == 'abc')               # False 
+print('3' > '24')                   # True (first char 3 is greater than 2)  
+
+# String Concatenation
+print('-- String Concatenation --')
+foo = 'foo'
+bar = 'bar'
+print(foo + bar)                    # foobar
+print('1' + '2')                    # 12
+print(foo + bar * 3)                # foobarfoobarfoobar
+
+# Coercion
+print('-- Coercion --')
+print(int('10'))                    # 10
+print(float('10.2343'))             # 10.2343     
+print(float('10'))                  # 10.0
+
+# Determining Types
+print(type('abc'))                  # <class 'str'>
+print(type('abc').__name__)         # str
+foo = 43
+print(type(foo))                    # <class 'int'>
+print(type('abc') is str)           # True
+
+print(isinstance('abc', str))       # True
+print(isinstance([], set))          # False
+
+class A: 
+    pass
+
+class B(A):
+    pass
+
+b = B()
+
+print(type(b).__name__)             # B
+print(type(b) is B)                 # True
+print(type(b) is A)                 # False
+print(isinstance(b, B))             # True
+print(isinstance(b, A))             # True (b is an instance of A and B)       
+
+# String Representations
+my_str = 'abc'
+print(my_str)                       # abc
+print(str(my_str))                  # abc (same as print(my_str))
+print(repr(my_str))                 # 'abc' (note the quotes)
+
+# Collection and String Lengths
+print(len('Launch School'))         # 13 (string)
+
+# Indexing and Key Access
+my_str = "abc"                      # string
+print(my_str[0])                    # 'a'
+print(my_str[1])                    # 'b'
+print(my_str[2])                    # 'c'
+# print(my_str[3])                    # IndexError string index out of range
+
+# Expression Evaluation
+print(1 + 2 + 3 + 4 + 5)            # 15
+print(4 * 5 - 1 + 2 * 3)            # 25 (multipleication first then additions 
+                                    # and subtractions from left to right)
+print(((4 * 5) - 1) + (2 * 3))
+
+# Exercises
+first_name = 'Jason'
+last_name = 'Hegarty'
+print(first_name + ' ' + last_name)
+
+print('5' + '10')                   # '510'
+print(int('5') + int('10'))         # 15
