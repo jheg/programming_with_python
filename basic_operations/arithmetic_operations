@@ -143,4 +143,18 @@ last_name = 'Hegarty'
 print(first_name + ' ' + last_name)
 
 print('5' + '10')                   # '510'
+
+# using coercion
 print(int('5') + int('10'))         # 15
+
+# index greater than list length
+foo = ['a', 'b', 'c']
+# print(foo[3]) # Index out of range error
+
+# expression evaluation 
+print('foo' == "Foo") # false
+
+# print(int('3.1415')) # Error: Invalid literal for int(). Value does not represent a valid integer
+print(int('3')) # 3
+
+# END
