@@ -184,5 +184,5 @@ obj = list(obj)             # Reassignment
 obj.pop()                   # Mutation
 obj[2] = 'X'                # Mutation
 obj.sort()                  # Mutation
-set(obj)                    # Mutation
+set(obj)                    # Mutation (Incorrect, its Neither as the set function simply returns the unique elements of the list.)
 obj = tuple(obj)            # Reassignment

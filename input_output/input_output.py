@@ -17,3 +17,5 @@ print(1, 2, 3, 'a', 'b')
 # By default multiple items are separated by a space 
 print(1, 2, 3, 'a', 'b', sep=',')
 
+# Exercises 
+# 1 

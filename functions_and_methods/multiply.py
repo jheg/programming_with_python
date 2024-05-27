@@ -1,3 +1,4 @@
+# My attempt
 def my_multiply(num1, num2):
     print(f'{num1} * {num2} = {float(num1) * float(num2)}')
 
@@ -6,6 +7,7 @@ second_number = input('Enter the second number: ')
 
 my_multiply(first_number, second_number)
 
+# Solution
 def multiply(left, right):
     return left * right
 

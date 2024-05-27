@@ -1,5 +1,5 @@
 def say(text):
-    print('==> ' + text)
+    print('==>  ' + text)
 
 say('hello')
 say('hi')
