@@ -1,0 +1,741 @@
+from socket import recv_fds
+from types import NoneType
+
+
+my_text = 'Jason'
+print(my_text[::-1])
+
+rev_text = ''.join(reversed(my_text))
+print(rev_text)
+
+
+# List Element Access
+# Locate the documentation for the list built-in object in Python Documentation.
+# How can we access the second element ('and') in the list ['fish', 'and', 'chips']?
+
+lea = ['fish', 'and', 'chips']
+print(lea[1])
+
+# Finding Index
+fruits = ["apple", "banana", "cherry", "peach", "watermelon"]
+print(fruits.index('cherry'))
+
+# Checking Data Types
+print(type(23.5))                            # <class 'float'>
+print(type('Call me Ishmael.'))              # <class 'str'>
+print(type(False))                           # <class 'bool'>
+print(type(0))                               # <class 'int'>
+print(type(None))                            # <class 'NoneType'>
+
+# String Formatting
+
+# How can you print the string Hello, Victor. You are a programmer. using the str.format method? You should fill in the name and profession in a string literal that contains the rest of the text.
+name = "Victor"
+profession = "programmer"
+
+print('Hello, {name}. You are a {profession}'.format(name = "Victor", profession = "programmer"))
+
+print("Hello, {}. You are a {}.".format(name, profession))
+
+# How can you achieve the same result using an f-string?
+print(f'Hello, {name}. You are a {profession}')
+
+# Style guide
+ice_cream_density = 10
+
+while ice_cream_density > 0:
+    print('Drip...')
+    ice_cream_density -= 1
+
+print('The ice cream melted.')
+
+# Operator precendence
+# 4 * 5 + 3**2 / 10. = 20.9
+
+# datetime module and obtaining current date and time
+from datetime import datetime
+print(datetime.now().year)
+
+
+# Which year is this?
+from datetime import date
+today = date.today()
+
+today_year = today.year                 # returns integer from today object
+iso_year = today.isocalendar()[0]       # index 0 in tuple
+print(today.isocalendar())
+
+# str.join
+names = ['Jason', 'Lee', 'Hegarty']
+print(' '.join(names))
+
+# Find Substring
+name = 'Jason'
+print('Ja' in name)
+
+# SyntaxError
+speed_limit = 60
+current_speed = 80
+
+if current_speed > speed_limit:
+    print('"People are so bad at driving cars that '
+          "computers don\'t have to be that good to be "
+          'much better." -- Marc Andreessen')
+
+# TypeError
+tweet = 'Woohoo! :-)'
+
+# if len(tweet) > 140:
+#     print('Tweet is too long!')
+
+# length_of_tweet = len(tweet + 5)
+
+# LOOPS
+# Loop and Print
+for num in range(0, 11, 2):
+    print(num)
+
+# Countdown
+for i in range(10, -1, -1):
+    if i > 0:
+        print(i)
+    else:
+        print('Launch!')
+
+# Triple Greeting
+greeting = 'Aloha!'
+count = 3
+while count > 0:
+    print(greeting)
+    count -= 1
+
+# Take Two
+for num in range(1, 101):
+    print(num * 2)
+
+# Looping over List Elements
+lst = [1, 3, 7, 15]
+index = 0
+while index < len(lst):
+    print(lst[index])
+    index += 1
+
+# Great your friends
+friends = ['Sarah', 'John', 'Hannah', 'Dave']
+for friend in friends: 
+    print(f'Hello, {friend}')
+
+# Continue
+cities = ['Istanbul', 'Los Angeles', 'Tokyo', None,
+          'Vienna', None, 'London', 'Beijing', None]
+
+for city in cities: 
+    if type(city) == NoneType:
+        continue
+    else:
+        print(len(city))
+
+for city in cities:
+    if city is None:                # Checks object identity in memory and None is a singleton in Python meaning there is only one intance of None in the entire program 
+        continue
+    print(len(city))
+
+# And on and on and on
+while True:
+    print("and on")
+    break
+
+# Finding Nemo
+fish_list = ['Dory', 'Marlin', 'Gill', 'Nemo', 'Bruce']
+
+for fish in fish_list:
+    print(fish)
+    if fish == 'Nemo':
+        break
+
+# Loop on Command
+# while True:
+#     print('Should I stop looping?')
+#     answer = input().lower()
+#     if answer == 'yes':
+#         break
+
+# CONDITIONALS
+# Truthy vs. Falsy          None, False values
+# False
+# None
+# 0, 0.0, 0j, and other numeric zero-values
+# '' (an empty string)
+# [] (an empty list)
+# {} (an empty dictionary)
+# () (an empty tuple)
+# set() (an empty set)
+# range(0) (an empty range)
+
+
+# Yes? No? Part 1
+import random
+random_number = random.randint(0, 1)
+if random_number:                           # 0 evaluates as falsy
+    print('Yes!')
+else: 
+    print('No')
+
+# Yes? No? Part 2 (conditional expression)
+print('Yes') if random_number else print('No')
+print('Yes!' if random_number else 'No')
+
+# Check the Weather, Part 1
+# Initialize a variable weather with a string value being 'sunny', 'rainy', or whatever weather condition you choose. 
+# Then, write an if statement that prints:
+
+# It's a beautiful day! if weather's value is 'sunny'
+# Grab your umbrella. if weather's value is 'rainy'
+# Let's stay inside. if weather's value is anything else
+# Test your code with different values for weather.
+
+weather = 'sunny'
+
+if weather == 'sunny':
+    print(f'It\'s a beautiful day! if weather\'s value is {weather}')
+elif weather == 'rainy':
+    print(f'Grab your umbrella. if weather\'s value is {weather}')
+else: 
+    print('Let\'s stay inside.')
+# Check the Weather, Part 2
+
+match weather:
+    case 'snow':
+        print(f'The forecast is {weather} let\'s build a snowman')
+    case 'rain':
+        print('Grab your umbrella it\'s raining')
+    case '_':
+        print('I don\'t know what the weather is doing!')
+
+# Logical Conditions 1
+if False or True:       # will always evaluate to true 
+    print('Yes!')
+else:
+    print('No...')
+
+# Logical Conditions 2
+if True and False:      # will always evaluate to false
+    print('Yes!')
+else:
+    print('No...')
+
+# Logical Conditions 3
+sale = True
+admission_price = 5.25 if not sale else 3.99
+
+print(f"${admission_price}")
+
+# Are we moving?
+speed = 0
+acceleration = 24
+braking_force = 19
+is_moving = braking_force < acceleration and (speed > 0 or acceleration > 0)
+print(is_moving)
+
+# FUNCTIONS
+# Multiply
+def multiply(num1, num2):
+    print(num1 * num2)
+
+multiply(12, 4)      # 48
+
+# Print Quote
+# Write a function that prints Bruce Eckel's quote 'Python is executable pseudocode.'.
+# What is the return value of the function? 
+# None as there is no return statement.
+
+def bruce_eckel_quote():
+    print('Python is executable pseudocode.')
+
+bruce_eckel_quote()
+
+# Cite the Author
+# Let's generalize the function from the previous exercise. 
+# Implement a function named cite that takes two string arguments: the author of the quote and what they said. 
+# It then prints the quote, as shown below.
+
+def cite(author, quote):
+    print(f'{author} said: "{quote}"')
+
+cite('Bruce Eckel', 'Python is executable pseudocode.')
+# Bruce Eckel said: "Python is executable pseudocode."
+
+# solution other solution
+# def cite(author, quote):
+#     print('{} said: "{}"'.format(author, quote))
+
+# Squared Number
+
+def squared_number(num):
+    return num ** 2
+
+print(squared_number(3)) 
+
+# Display Division
+# the function is not invoked due to the ommission of () 
+
+# Three-way Comparison
+def compare_by_length(str1, str2):
+    if len(str1) < len(str2): 
+        return -1
+    elif len(str1) > len(str2):
+        return 1
+    else:
+        return 0
+
+print(compare_by_length('patience', 'perseverance')) # -1
+print(compare_by_length('strength', 'dignity'))      #  1
+print(compare_by_length('humor', 'grace'))           #  0
+
+# Transformation
+# Use Python's string methods on the string 'Captain Ruby' to create a string with the value 'Captain Python'.
+
+my_string = "Captain Ruby"
+string_list = my_string.split()
+string_list[1] = "Python"
+print(" ".join(string_list)) 
+
+print('Captain Ruby Ruby Ruby'.replace('Ruby', 'Python'))
+
+# Internationalization 1
+# Use Python's control structures to create a function that takes an ISO 639-1 language code and returns a greeting in that language. 
+# You can take the examples below or add whatever languages you like.
+
+def greet(locale):
+    match locale:
+        case 'en':
+            return "Hi!"
+        case 'fr':
+            return "Salut!"
+        case 'pt':
+            return "Ola!"
+        case 'de':
+            return "Hallo!!"
+        case 'sv':
+            return "Hej!"
+        case 'af':
+            return "Haai!"
+        case _:
+            return "Hey!"
+
+print(greet('en'))         # Hi!
+print(greet('fr'))         # Salut!
+print(greet('pt'))         # Olá!
+print(greet('de'))         # Hallo!
+print(greet('sv'))         # Hej!
+print(greet('af'))         # Haai!
+print(greet(''))           # Hey!
+
+# Locale Part 1
+# Write a function that extracts the language code from a locale. A locale is a combination of a language code, a region, and usually also a character set, e.g en_US.UTF-8.
+
+def extract_language(locale):
+    return locale[0:2]
+
+print(extract_language('en_US.UTF-8'))      # en
+print(extract_language('en_GB.UTF-8'))      # en
+print(extract_language('ko_KR.UTF-16'))     # ko
+
+# Locale Part 2
+# Similar to the previous exercise, write a function that extracts the region code from a locale. For example:
+def extract_region(region):
+    return region.split('.')[0].split('_')[1]
+
+print(extract_region('en_US.UTF-8'))    # US
+print(extract_region('en_GB.UTF-8'))    # GB
+print(extract_region('ko_KR.UTF-16'))   # KR
+
+# Internationalization 2
+def local_greet(locale):
+    language = extract_language(locale)
+    region = extract_region(locale)
+
+    match language:
+        case 'en':
+            match region:
+                case 'US':
+                    return 'Hey!'
+                case 'GB':
+                    return 'Hello!'
+                case 'AU':
+                    return 'Howdy!'
+        case 'fr':
+            return 'Salut!'
+
+print(local_greet('en_US.UTF-8'))       # Hey!
+print(local_greet('en_GB.UTF-8'))       # Hello!
+print(local_greet('en_AU.UTF-8'))       # Howdy!
+print(local_greet('fr_FR.UTF-8'))       # Salut!
+
+# VARIABLE SCOPE
+# What's my value? (Part 1)
+# What will the following code do and why? Don't run it until you have tried to answer.
+if True:
+    my_value = 20
+
+print(my_value)                 # 20 because True is a truthy value
+
+
+# What's my value? (Part 2)
+# What will the following code do and why? Don't run it until you have tried to answer.
+x = 10
+
+def my_function():
+    x = x + 5
+    print(x)
+
+# my_function()                   # unbound error as x is not defined inside the function. We could use global x in our function if we wanted to access the x variable in the outer scope
+
+# What's my value? (Part 3)
+# What will the following code do and why? Don't run it until you have tried to answer.
+
+def my_function():
+    a = 1
+
+    if True:
+        print(a)
+
+my_function()                   # 1 
+
+# What's my value? (Part 4)
+# What will the following code do and why? Don't run it until you have tried to answer.
+a = 1
+
+def my_function():
+    print(a)
+
+my_function()                   # 1 global variables are globally accessible throughout code including functions. 
+
+# What's my value? (Part 5)
+# What will the following code do and why? Don't run it until you have tried to answer.
+a = 1
+
+def my_function():
+    print(a)
+    a = 2
+
+# my_function()                   # unbound error as we are trying to print the local var before it has been assigned on the next line which makes it a local variable. 
+
+# What's my value? (Part 6)
+# What will the following code do and why? Don't run it until you have tried to answer.
+a = 1
+
+def my_function():
+    a = 2
+
+my_function()                      # 1 as a = 2 is a local variable
+print(a)
+
+# What's my value? (Part 7)
+# What will the following code do and why? Don't run it until you have tried to answer.
+a = 1
+
+def my_function():
+    global a
+    a = 2
+
+my_function()                       
+print(a)                            # 2
+
+# What's my value? (Part 8)
+# What will the following code do and why? Don't run it until you have tried to answer.
+print(greeting)
+
+# greeting = 'Hello world!'           # error greeting undefined
+
+# What's my value? (Part 9)
+# What will the following code do and why? Don't run it until you have tried to answer.
+a = 7
+
+def my_function(b):
+    b += 10
+
+my_function(a)
+print(a)                        # 7
+
+# What's my value? (Part 10)
+# What will the following code do and why? Don't run it until you have tried to answer.
+b = [1, 2, 3]
+
+def my_function():
+    b[0] = 10
+
+my_function()                   
+print(b)                        # [10, 2, 3] list are mutable and can be modified within a function
+
+# STRINGS
+# Length
+# Determine the length of the string "These aren't the droids you're looking for.".
+
+
+print(len("These aren't the droids you're looking for."))
+
+# All CAPS
+# Convert the string 'confetti floating everywhere' to all upper case.
+string = 'confetti floating everywhere'
+string_upper = string.upper()
+
+print(string_upper)
+
+# Ignoring Case
+# Using the following code, compare the value of name with the string 'RoGeR' while ignoring the case of both strings.
+# Print true if the values are the same; print false if they aren't. 
+# Next, perform a case-insensitive comparison between the value of name and the string 'DAVE'.
+
+name = 'Roger'
+print(True if name.lower() == 'RoGeR'.lower() else False)
+print(True if name.lower() == 'DAVE'.lower() else False)
+
+# Note lower() will not always account for character variations for example 'ß' is a unique German lowercase letter whos uppercase equivilent is 'SS'. 
+# A more comprehensive method is str.casefold which is primarily used for case-insentive string comparison 
+
+print(True if name.casefold() == 'RoGeR'.casefold() else False)
+print(True if name.casefold() == 'DAVE'.casefold() else False)
+
+# Multiline String
+# How can you assign the following rhyme to a single variable while preserving the line break?
+
+ryme = 'A pirate I was meant to be! \nTrim the sails and roam the sea!'
+print(ryme)
+
+ryme2 = '''A pirate I was meant to be! 
+Trim the sails and roam the sea!'''
+
+print(ryme2)
+
+# Contains Character
+# Write code that checks whether the string char_sequence contains the character x.
+
+char_sequence = 'TXkgaG92ZXJjcmFmdCBpcyBmdWxsIG9mIGVlbHMu'
+
+print('x' in char_sequence)
+
+# Is Empty?
+# Write a function that checks whether a string is empty or not. For example:
+
+def is_empty(str):
+    if len(str):
+        return False
+    else:
+        return True
+
+print(is_empty('mars'))  # False
+print(is_empty('  '))    # False
+print(is_empty(''))      # True
+
+# solution 
+
+def is_empty_pythonic(str):
+    return not str                              # an empty string evaluates as falsy so not false would return true or false accordingly
+
+print(is_empty_pythonic('mars'))  # False
+print(is_empty_pythonic('  '))    # False
+print(is_empty_pythonic(''))      # True
+
+# Is Empty or Blank?
+# Write an is_empty_or_blank function to determine whether a string is either empty or consists entirely of spaces. For example:
+
+def is_empty_or_blank(str):
+    return not str or not str.isalpha()
+
+print('Is Empty or Blank')
+print(is_empty_or_blank('mars'))  # False
+print(is_empty_or_blank('  '))    # True
+print(is_empty_or_blank(''))      # True
+
+# better solution 
+def ieob(str):
+    return not str.strip(' ')                   # Strips all leading and trailing whitespace and removes any spaces
+
+# Capitalize Words
+# Write code that capitalizes the words in the string 'launch school tech & talk', so that you get the string 'Launch School Tech & Talk'.
+string = 'launch school tech & talk'
+
+def cap_words(str):
+    new_words = []
+    for word in str.split():
+        new_words.append(word.capitalize()) 
+    return ' '.join(new_words)
+
+print(cap_words(string))
+
+print(string.title())
+
+# Check Prefix
+# Write a function that checks whether a string starts with a specific prefix.
+
+def starts_with(str, chars):
+    return str.startswith(chars)
+
+print(starts_with("launch", "la"))   # True
+print(starts_with("school", "sah"))  # False
+print(starts_with("school", "sch"))  # True
+
+# Count Substrings
+# Write a function that counts the number of occurrences of a substring in a string.
+
+def count_substrings(str1, str2):
+    return str1.count(str2)
+
+print(count_substrings("lemon lemon lemon", "lemon")) # 3
+print(count_substrings("laLAlaLA", "la")) # 2
+print(count_substrings("launch", "uno")) # 0
+
+# LISTS
+# First Element
+# Write a function that returns the first element of a list provided as an argument. For example:
+def first(list):
+    if list:
+        return list[0]
+    else:
+        return None
+
+print(first(['Earth', 'Moon', 'Mars']))  # Earth
+
+# Last Element
+# Write a function that returns the last element of a list provided as an argument. For example:
+def last(list):
+    if list:
+        return list[-1]
+    else:
+        return None
+
+print(last(['Earth', 'Moon', 'Mars']))  # Mars
+
+# Add + Delete
+# We are given the following list of energy sources.
+# Write some code to remove 'fossil' from the list, then add 'geothermal' to the end of the list.
+
+energy = ['fossil', 'solar', 'wind', 'tidal', 'fusion']
+energy.remove('fossil')
+energy.append('geothermal')
+print(energy)
+
+# Alphabet
+# Split the string alphabet into a list of characters.
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+chars = []
+for char in alphabet:
+    chars.append(char)
+
+print(chars)
+print(list(alphabet))
+
+# Filter
+# Count the number of elements in scores that are 100 or above.
+
+scores = [96, 47, 113, 89, 100, 102]
+count = 0
+for num in scores:
+    if num > 99:
+        count += 1
+    else:
+        continue
+
+print(count)
+
+# list comprehension 
+high_scores = [score for score in scores if score > 99]
+print(len(high_scores))
+
+# Vocabulary
+# You've been given a list of vocabulary words grouped into sub-lists, by meaning. 
+# This is a two-dimensional list or a nested list. 
+# Write some code that iterates through and prints all the words, one per line.
+
+vocabulary = [
+    ['happy', 'cheerful', 'merry', 'glad'],
+    ['tired', 'sleepy', 'fatigued', 'drained'],
+    ['excited', 'eager', 'enthused', 'animated'],
+]
+
+# happy
+# cheerful
+# merry
+# glad
+# tired
+# sleepy
+# etc...
+
+for top_list in vocabulary:
+    for word in top_list:
+        print(word)
+
+# Equality
+# Predict the output of the code shown below. 
+# When you run the code, do you see what you expected? Why or why not?
+
+list1 = [2, 6, 4]
+list2 = [2, 6, 4]
+
+print(list1 == list2)       # True as both lists contain the same values. This doesn't copmpare if they are the same object. 
+
+# Type
+# How can you check if a variable holds a value that is a list? 
+# Given two variables, verify whether the values they hold are lists.
+
+some_value1 = [0, 1, 0, 0, 1]
+some_value2 = 'I leave you my Kingdom, take good care of it.'
+
+print(isinstance(some_value1, list))
+print(isinstance(some_value2, list))
+
+print(type(some_value1))
+print(type(some_value2))
+
+
+# Travel
+# The destinations list contains a list of travel destinations.
+
+destinations = ['Prague', 'London', 'Sydney', 'Belfast',
+                'Rome', 'Aruba', 'Paris', 'Bora Bora',
+                'Barcelona', 'Rio de Janeiro', 'Marrakesh',
+                'New York City']
+
+
+# Write a function that, without using the built-in in operator, checks whether a specific destination is included within destinations. 
+# For example: When checking whether 'Barcelona' is contained in destinations, the expected output is True, whereas the expected output for 'Nashville' is False.
+
+def contains(place, places):
+    for place_to_check in places: 
+        if place_to_check == place:
+            return True
+    return False
+
+
+print(contains('Barcelona', destinations))  # True
+print(contains('Nashville', destinations))  # False
+
+# Passcode
+# We generated parts of a passcode and now want to combine them into a string. 
+# Write some code that creates and prints a string that contains each portion of the passcode separated by hyphens (-).
+
+passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs']
+
+# Write some code here.
+passcode_string = '-'.join(passcode)
+print(passcode_string)                      # Expected output: 11-jZ5-hQ3f*-8!7g3-p3Fs
+
+
+
+# Checking items off the grocery list
+# We have a grocery list. As we check off items on that list, we want to remove them from the list.
+
+# Write code that removes the items from grocery_list, one by one, until it is empty. 
+# If you print the elements you remove, the expected behavior would look as follows.
+
+grocery_list = ['paprika', 'tofu', 'garlic', 'quinoa',
+                'carrots', 'broccoli', 'hummus']
+
+# Your code.
+while grocery_list:
+    print(grocery_list[0])
+    grocery_list.pop(0)
+
+print(grocery_list)
